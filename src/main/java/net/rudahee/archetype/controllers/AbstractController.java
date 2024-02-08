@@ -55,7 +55,7 @@ public abstract class AbstractController<E, DTO, CS extends AbstractCRUDService<
     }
 
     @PostMapping("/save")
-    public ResponseEntity<?> save(DTO dto) {
+    public ResponseEntity<?> save(@RequestBody DTO dto) {
         try {
             if (dto == null) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ApiErrorEnum.BODY_IS_MISSING);
@@ -69,7 +69,7 @@ public abstract class AbstractController<E, DTO, CS extends AbstractCRUDService<
     }
 
     @PostMapping("/save/all")
-    public ResponseEntity<?> saveAll(List<DTO> dtos) {
+    public ResponseEntity<?> saveAll(@RequestBody List<DTO> dtos) {
         try {
             if (dtos.isEmpty()) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ApiErrorEnum.BODY_IS_MISSING);
@@ -83,7 +83,7 @@ public abstract class AbstractController<E, DTO, CS extends AbstractCRUDService<
     }
 
     @PutMapping("/save")
-    public ResponseEntity<?> update(DTO dto) {
+    public ResponseEntity<?> update(@RequestBody DTO dto) {
         try {
             if (dto == null) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ApiErrorEnum.BODY_IS_MISSING);
@@ -97,7 +97,7 @@ public abstract class AbstractController<E, DTO, CS extends AbstractCRUDService<
     }
 
     @PutMapping("/save/all")
-    public ResponseEntity<?> updateAll(List<DTO> dtos) {
+    public ResponseEntity<?> updateAll(@RequestBody List<DTO> dtos) {
         try {
             if (dtos.isEmpty()) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ApiErrorEnum.BODY_IS_MISSING);
@@ -111,7 +111,7 @@ public abstract class AbstractController<E, DTO, CS extends AbstractCRUDService<
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity<?> delete(DTO dto) {
+    public ResponseEntity<?> delete(@RequestBody DTO dto) {
         try {
             if (dto == null) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ApiErrorEnum.BODY_IS_MISSING);
